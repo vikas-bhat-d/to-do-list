@@ -283,7 +283,7 @@
     color: #cac6c6 ;
 }
 .checked #checkIcon{
-    background-image: url('./checkIcon.svg');
+    background-image: url('./assets/checkIcon.svg');
     background-size: cover;
     background-position: center;
 }
