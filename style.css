@@ -125,7 +125,7 @@
     color: rgb(37, 37, 37)
 }
 
-.wrapper .icon i:hover{
+.wrapper .icon i:active{
     background-color: #5d5d5d;
     color: white;
     cursor: pointer;
