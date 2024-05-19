@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List|Vikas Bhat D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="container">
+        <div class="todo-list">
+            <div class="app-title">
+                <img src="./assets/to-do-list.png" >
+                <h3>To-Do List</h3>
+            </div>
+            
+            <div class="wrapper" draggable="false">
+                <div class="icon">
+                    <i class='bx bx-chevron-left' id="left"></i>
+                </div>
+                <ul class="daysList" draggable="false">
+                </ul>
+                <div class="icon">
+                    <i class='bx bx-chevron-right' id="right"></i>
+                </div>
+                
+            </div>
+            <div class="add-container hide">
+                <div class="name">
+                    <p>Name:</p>
+                    <input type="text" placeholder="Enter task" id="text-input">
+                </div>
+                <div class="time">
+                    <p>Time:</p>
+                    <input type="time" value="00:00" id="time-input">
+                </div>
+                <div class="priority">
+                    <p>Priority:</p>
+                    <div class="choice">
+                        <input type="radio" id="#f16758" value="#f16758" name="select" checked>
+                        <label for="#f16758"><div></div></label>
+    
+                        <input type="radio" id="#f2be57" value="#f2be57" name="select">
+                        <label for="#f2be57"><div></div></label>
+    
+                        <input type="radio" id="#68c660" value="#68c660" name="select">
+                        <label for="#68c660"><div></div></label>
+    
+                        <input type="radio" id="#9a70db" value="#9a70db" name="select">
+                        <label for="#9a70db"><div></div></label>
+    
+                        <input type="radio" id="#ababaa" value="#ababaa" name="select">
+                        <label for="#ababaa"><div></div></label>
+                    </div>
+                </div>
+            </div>
+            <div class="list empty-list">
+                <div class="empty" draggable="false">
+                    <p>You Have No Task.</p>
+                    <img src="./assets/Empty.png" draggable="false">
+                </div>
+                <ul class="taskList">
+                    <p>Task(0)</p>
+                </ul>
+                <ul class="doneList">
+                    <p>Done(0)</p>
+                </ul>
+                <div class="add-list">
+                </div>
+            </div>
+            <div class="add-button">
+                <div id="info">Add Task</div>
+                <span id="plus-icon">&plus;</span> 
+            </div>
+            <div class="scroll-bar hide-scrollbar">
+                <div class="scroll-bar-track">
+                    <div class="scroll-bar-thumb"></div>
+                </div>
+            </div>
+            <div class="right-button hide">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="32" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
+            </div>
+            <div class="x-button hide">
+                <div id="info">Cancel</div>
+                <span id="plus-icon"> &#10005;</span> 
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
