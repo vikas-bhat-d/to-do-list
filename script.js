@@ -42,6 +42,7 @@ function addTask(desc,time,priority){
     li=document.createElement('li');
     li.classList.add("task")
     li.style.borderLeftColor=priority
+    li.setAttribute('id',priority)
     li.innerHTML=`<div id="checkIcon"></div><p id="time">${time}</p><p id="desc">${desc}</p><div id="xMark">&#10005;</div>`
     taskList.appendChild(li)
 }
@@ -109,6 +110,7 @@ function add(e){
         addButton.classList.add('hide')
         xButton.classList.remove('hide')
     }
+    sortTasks();
     setData();
     updateCount();
     if((taskList.children.length==1 && doneList.children.length==1)||(taskList.children.length==0&& doneList.children.length==0))
@@ -166,6 +168,7 @@ function check(e){
             list.classList.remove('empty-list')
         if((taskList.children.length==1&& doneList.children.length==1)||(taskList.children.length==0&& doneList.children.length==0))
             list.classList.add('empty-list')
+        sortTasks();
         setData();
         updateCount();
         showScrollbar();
@@ -179,6 +182,7 @@ function check(e){
         list.classList.remove('no-task')
     }
     if(!xClicked){
+        sortTasks();
         setData();
         showScrollbar()
     }
@@ -198,6 +202,7 @@ function showTasks(date){
         list.classList.add('empty-list')
     }
     showScrollbar();
+    sortTasks();
     updateCount();
 }
 
@@ -215,6 +220,28 @@ function dragList(e){
     list.classList.add('dragging')
     list.scrollTop-=e.movementY;
     dragged=true
+}
+
+
+function sortTasks(){
+    priorityRank=["#ababaa","#9a70db","#68c660","#f2be57","#f16758"]
+    let listToSort=[];
+    Array.from(taskList.children).splice(1).forEach((ele)=>{
+        taskList.removeChild(ele);
+        listToSort.push({outerHtml:ele.outerHTML,priority:ele.id,time:ele.querySelector('#time').innerHTML})
+    })
+    listToSort=listToSort.sort((a,b)=>{
+        aTime=a.time.split(":")[0]*10+a.time.split(":")[1]
+        bTime=b.time.split(":")[0]*10+b.time.split(":")[1]
+        if(aTime==bTime){
+            return priorityRank.indexOf(b.priority)-priorityRank.indexOf(a.priority)
+        }
+        return aTime-bTime;
+    })
+
+    listToSort.forEach((ele)=>{
+        taskList.insertAdjacentHTML("beforeend",ele.outerHtml);
+    })
 }
 
 let d=new Date();
